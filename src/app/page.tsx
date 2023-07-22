@@ -193,8 +193,12 @@ export default function Home() {
         </div>
       </SectionContainer>
       <SectionContainer>
-        <span>Copyright © 2022 - All rights reserved</span>
-        <Image src={logo} alt="" />
+        <div className="flex items-center justify-between py-6">
+          <span className="text-sm leading-[1rem]">
+            Copyright © 2022 - All rights reserved
+          </span>
+          <Image src={logo} alt="" width={94} height={16} />
+        </div>
       </SectionContainer>
     </main>
   )
