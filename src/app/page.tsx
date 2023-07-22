@@ -10,6 +10,7 @@ import laptopMobile from '@/assets/laptop-mobile.svg'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { Input } from '@/components/ui/input'
 
 const LABEL_CONTENT = [
   { id: '1', label: 'Cryptos' },
@@ -169,24 +170,25 @@ export default function Home() {
       </SectionContainer>
 
       <SectionContainer>
-        <div>
-          <div>
-            <strong>Lorem ipsum </strong>
-            <h3>Lorem ipsum</h3>
+        <div className="grid grid-cols-2 gap-[239px] bg-newsletter-pattern px-[104px] py-[120px]">
+          <div className="text-white">
+            <h4>Lorem ipsum </h4>
+            <h2>Lorem ipsum</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
               aliquam, purus sit amet luctus venenatis, lectus magna fringilla
               urna, porttitor
             </p>
           </div>
-        </div>
-        <div>
-          <form>
-            {/* <label>
+
+          <form className="flex flex-col ">
+            <label className="flex flex-col gap-2 text-xs">
               Email
-              <input placeholder="Email" />
-            </label> */}
-            <button>Sign up now</button>
+              <Input placeholder="Email" />
+            </label>
+            <Button className="mt-[13px]" type="submit">
+              Sign up now
+            </Button>
           </form>
         </div>
       </SectionContainer>
