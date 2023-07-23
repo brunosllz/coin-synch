@@ -17,15 +17,15 @@ export function HeroSection() {
           <div className="flex justify-end">
             <div className="flex  w-full max-w-[590px] flex-col justify-end">
               <div className="flex flex-col gap-6">
-                <h1 className="font-bold text-primary-500">
+                <h1 className="text-4xl font-bold text-primary-500">
                   Lorem ipsum dolor sit amet, consectetur
                 </h1>
 
-                <h5>
+                <h2 className="text-lg">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis, lectus magna
                   fringilla urna, porttitor
-                </h5>
+                </h2>
               </div>
 
               <Button className="mb-20 mt-8 gap-[10px] uppercase">
@@ -40,7 +40,7 @@ export function HeroSection() {
                       key={tag.id}
                       className="rounded bg-primary-100 px-4 py-1"
                     >
-                      <span className="text-xl leading-[2rem] text-primary-500">
+                      <span className="text-lg leading-[2rem] text-primary-500">
                         {tag.label}
                       </span>
                     </li>

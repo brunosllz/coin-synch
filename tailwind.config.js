@@ -15,6 +15,64 @@ module.exports = {
         '2xl': '1400px',
       },
     },
+    fontSize: {
+      xs: [
+        '0.75rem', // 12px
+        {
+          lineHeight: '0.875rem',
+          letterSpacing: '0em',
+        },
+      ],
+      sm: [
+        '0.875rem', // 14px
+        {
+          lineHeight: '1rem',
+          letterSpacing: '0em',
+        },
+      ],
+      md: [
+        '1rem', // 16px
+        {
+          lineHeight: '1.5rem',
+          letterSpacing: '0em',
+        },
+      ],
+      lg: [
+        '1.25rem', // 20px
+        {
+          lineHeight: '2rem',
+          letterSpacing: '0em',
+        },
+      ],
+      xl: [
+        '1.5rem', // 24px
+        {
+          lineHeight: '2rem',
+          letterSpacing: '0em',
+        },
+      ],
+      '2xl': [
+        '1.5rem', // 32px
+        {
+          lineHeight: '2.5rem',
+          letterSpacing: '0em',
+        },
+      ],
+      '3xl': [
+        '2.5rem', // 40px
+        {
+          lineHeight: '3rem',
+          letterSpacing: '-0.01em',
+        },
+      ],
+      '4xl': [
+        '3rem', // 48px
+        {
+          lineHeight: '3.5rem',
+          letterSpacing: '-0.01em',
+        },
+      ],
+    },
     colors: {
       primary: {
         100: '#FFF6E8',

@@ -49,7 +49,10 @@ export function Slider() {
 
   return (
     <div ref={sliderContainer} className="flex overflow-hidden">
-      <motion.div className="flex gap-10" style={{ x: translateX }}>
+      <motion.div
+        className="flex gap-10 transition-all"
+        style={{ x: translateX }}
+      >
         <motion.div
           className="flex h-[499px] w-[464px] items-center justify-center transition-colors"
           style={{ opacity: ImageOneOpacity }}
