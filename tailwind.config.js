@@ -23,6 +23,13 @@ module.exports = {
           letterSpacing: '0em',
         },
       ],
+      paragraph: [
+        '0.875rem', // 14px
+        {
+          lineHeight: '1.5rem',
+          letterSpacing: '0em',
+        },
+      ],
       sm: [
         '0.875rem', // 14px
         {

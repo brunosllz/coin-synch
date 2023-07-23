@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
-  @apply text-text-base bg-white text-md
+  @apply text-text-base bg-white
+}
+
+* {
+  @apply text-md
 }
