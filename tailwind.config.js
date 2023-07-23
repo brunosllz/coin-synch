@@ -147,6 +147,8 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('/img/hero-pattern.svg')",
         'newsletter-pattern': "url('/img/newsletter-pattern.svg')",
+        'newsletter-gradient':
+          'linear-gradient(138deg, #FBAB34 0%, #AD721A 100%)',
       },
     },
   },
