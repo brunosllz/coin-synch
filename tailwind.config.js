@@ -59,7 +59,7 @@ module.exports = {
         },
       ],
       '2xl': [
-        '1.5rem', // 32px
+        '2rem', // 32px
         {
           lineHeight: '2.5rem',
           letterSpacing: '0em',
@@ -114,7 +114,7 @@ module.exports = {
         800: '#0E6B3A',
         900: '#07381E',
       },
-      quartenary: {
+      quaternary: {
         100: '#FFF2F3',
         200: '#FFCFD0',
         300: '#FF9497',

@@ -26,10 +26,12 @@ export function HeroSection() {
             </h2>
           </div>
 
-          <Button className="mb-20 mt-8 gap-[10px] uppercase">
-            Sign up now
-            <ArrowRight size={16} />
-          </Button>
+          <div className="mb-20 mt-8 w-[278px]">
+            <Button className="gap-[10px] uppercase">
+              Sign up now
+              <ArrowRight size={16} />
+            </Button>
+          </div>
 
           <ul className="flex gap-8">
             {TAGS_CONTENT.map((tag) => {

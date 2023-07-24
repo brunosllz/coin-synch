@@ -12,20 +12,20 @@ export function Header() {
           <Image src={logo} alt="" />
           <nav className="ml-10 flex items-center gap-6">
             <Link href="#about-us">About us</Link>
-            <Link href="/">Top Cryptos</Link>
+            <Link href="#top-cryptos">Top Cryptos</Link>
           </nav>
         </div>
 
-        <div className="flex">
-          <div>
+        <div className="flex w-72">
+          <div className="flex">
             <span>BIT</span>
             <span>R$ 23,62</span>
             <span>+7,082</span>
           </div>
 
-          <div>
-            <Button>Sign In</Button>
-            <Button>Sign up</Button>
+          <div className="flex w-full">
+            <Button size="sm">Sign In</Button>
+            <Button size="sm"> Sign up</Button>
           </div>
         </div>
       </div>

@@ -22,8 +22,9 @@ export function AboutUsSection() {
               urna, porttitor
             </p>
           </div>
-
-          <Button>Sign up now</Button>
+          <div className="w-[176px]">
+            <Button>Sign up now</Button>
+          </div>
         </div>
       </div>
     </section>

@@ -8,12 +8,14 @@ export function SubscribeForm() {
   return (
     <form className="flex flex-col">
       <div>
-        <Label htmlFor="email" />
+        <Label htmlFor="email" className="text-sm font-normal text-white">
+          Email
+        </Label>
         <Input id="email" placeholder="Email" />
       </div>
 
-      <Button className="mt-[13px]" type="submit">
-        Sign up now
+      <Button className="mt-[21px]" type="submit">
+        Subscribe
       </Button>
     </form>
   )
