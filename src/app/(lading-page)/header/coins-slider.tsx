@@ -40,10 +40,14 @@ export function CoinsSlider({ coins }: CoinsSliderProps) {
 
           return (
             <li key={coin.id} className="flex w-auto gap-2">
-              <span className="truncate text-sm">{coin.symbol}</span>
-              <span className="truncate text-sm ">{coin.priceR$}</span>
+              <span className="truncate text-xs text-secondary-800 lg:text-sm">
+                {coin.symbol}
+              </span>
+              <span className="truncate text-xs lg:text-sm">
+                {coin.priceR$}
+              </span>
               <span
-                className={cn('truncate text-sm text-tertiary-700', {
+                className={cn('truncate text-xs text-tertiary-700 lg:text-sm', {
                   'text-quaternary-700': isNegative,
                 })}
               >
