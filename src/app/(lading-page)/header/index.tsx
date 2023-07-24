@@ -45,9 +45,7 @@ export async function Header() {
           </div>
 
           <div className="items-center gap-20 sm:flex">
-            <div className="absolute -bottom-[41px] left-1/2 flex w-full -translate-x-1/2 justify-center bg-white py-[5px] shadow-md lg:static lg:translate-x-0 lg:shadow-none">
-              <CoinsSlider coins={coins} />
-            </div>
+            <CoinsSlider coins={coins} />
 
             <ul className="hidden gap-1 sm:visible sm:flex">
               <div className="w-20">
