@@ -48,7 +48,10 @@ export function Slider() {
   }, [])
 
   return (
-    <div ref={sliderContainer} className="flex overflow-hidden">
+    <div
+      ref={sliderContainer}
+      className="absolute left-[43rem] top-0 flex overflow-hidden"
+    >
       <motion.div
         className="flex gap-10 transition-all"
         style={{ x: translateX }}

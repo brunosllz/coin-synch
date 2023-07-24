@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import bitcoin from '@/assets/bitcoin.svg'
-import ethereum from '@/assets/business-chart.svg'
-import businessChart from '@/assets/ethereum.svg'
+import businessChart from '@/assets/business-chart.svg'
+import ethereum from '@/assets/ethereum.svg'
 import laptopMobile from '@/assets/laptop-mobile.svg'
 
 const CARD_CONTENT = [

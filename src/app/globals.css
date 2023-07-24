@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply text-text-base bg-white
-}
-
 * {
   @apply text-md
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-text-base bg-white
 }

@@ -3,7 +3,10 @@ import { CardList } from './card-list'
 
 export function AboutUsSection() {
   return (
-    <section className="flex w-full flex-col bg-gradient-to-b from-white/0 to-[#F7F7F7]">
+    <section
+      id="about-us"
+      className="flex w-full flex-col bg-gradient-to-b from-white/0 to-[#F7F7F7]"
+    >
       <div className="mx-auto mb-[130px] mt-[120px] grid w-full max-w-[1216px] grid-cols-[696px_1fr] gap-8">
         <CardList />
 
