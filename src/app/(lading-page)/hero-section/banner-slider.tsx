@@ -9,7 +9,7 @@ import imageHero from '@/assets/hero-image.png'
 import imageHero1 from '@/assets/hero-image-1.png'
 import imageHero2 from '@/assets/hero-image-2.png'
 
-export function Slider() {
+export function BannerSlider() {
   const [contentSliderWidth, setContentSliderWidth] = useState(0)
 
   const sliderContainer = useRef<HTMLDivElement | null>(null)
@@ -22,8 +22,8 @@ export function Slider() {
 
   const translateX = useTransform(
     scrollYProgress,
-    [0, 0.42],
-    [0, -contentSliderWidth],
+    [0, 0.6],
+    [0, -contentSliderWidth * 1.5],
     {
       clamp: false,
     },
@@ -45,19 +45,20 @@ export function Slider() {
     if (sliderContent.current) {
       setContentSliderWidth(sliderContent.current.offsetWidth)
     }
-  }, [])
+  }, [sliderContent])
 
   return (
     <div
       ref={sliderContainer}
-      className="absolute left-[43rem] top-0 flex overflow-hidden"
+      className="absolute top-0 hidden overflow-hidden sm:visible sm:left-[388px] sm:flex lg:left-[44.5rem]"
     >
       <motion.div
-        className="flex gap-10 transition-all"
+        className="flex gap-10"
         style={{ x: translateX }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <motion.div
-          className="flex h-[499px] w-[464px] items-center justify-center transition-colors"
+          className="flex items-center justify-center transition-colors sm:h-[280px] sm:w-[295.47px] lg:h-[499px] lg:w-[472px]"
           style={{ opacity: ImageOneOpacity }}
         >
           <Image
@@ -71,7 +72,7 @@ export function Slider() {
         </motion.div>
 
         <motion.div
-          className="flex h-[499px] w-[464px] items-center justify-center transition-colors"
+          className="flex items-center justify-center transition-colors sm:h-[280px] sm:w-[295.47px] lg:h-[499px] lg:w-[472px]"
           style={{ opacity: ImageTwoOpacity }}
         >
           <Image
@@ -84,7 +85,7 @@ export function Slider() {
         </motion.div>
 
         <motion.div
-          className="flex h-[499px] w-[464px] items-center justify-center transition-colors"
+          className="flex items-center justify-center transition-colors sm:h-[280px] sm:w-[295.47px] lg:h-[499px] lg:w-[472px]"
           style={{ opacity: ImageThreeOpacity }}
         >
           <Image
