@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label'
 
 export function SubscribeForm() {
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col sm:justify-center">
       <div>
         <Label htmlFor="email" className="text-sm font-normal text-white">
           Email
@@ -14,7 +14,7 @@ export function SubscribeForm() {
         <Input id="email" placeholder="Email" />
       </div>
 
-      <Button className="mt-[21px]" type="submit">
+      <Button className="mt-[21px] text-sm shadow-md sm:text-md" type="submit">
         Subscribe
       </Button>
     </form>
