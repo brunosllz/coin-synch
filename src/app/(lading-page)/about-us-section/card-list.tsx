@@ -1,11 +1,16 @@
-import Image from 'next/image'
+'use client'
+
+import { useBreakpoint } from '@/hooks/use-breakpoints'
+
+import { DraggableList } from './draggable-list'
+import { GridList } from './grid-list'
 
 import bitcoin from '@/assets/bitcoin.svg'
 import businessChart from '@/assets/business-chart.svg'
 import ethereum from '@/assets/ethereum.svg'
 import laptopMobile from '@/assets/laptop-mobile.svg'
 
-const CARD_CONTENT = [
+const CARDS_CONTENT = [
   {
     top: [
       {
@@ -46,60 +51,18 @@ const CARD_CONTENT = [
   },
 ]
 
+export type CardContentType = typeof CARDS_CONTENT
+
 export function CardList() {
+  const { isSm } = useBreakpoint('sm')
+
   return (
     <>
-      {CARD_CONTENT.map((item, index) => {
-        return (
-          <ul key={index} className="flex flex-col gap-8">
-            <div className="grid grid-cols-[280px_1fr] gap-8">
-              {item.top.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className="flex max-w-[280px] flex-col gap-4 rounded-md bg-white p-6 shadow-xl"
-                  >
-                    <Image src={item.imageUrl} alt="" />
-
-                    <div>
-                      <span className="font-bold text-primary-500">
-                        {item.label}
-                      </span>
-                      <h4 className="mb-2 mt-1 text-xl font-bold">
-                        {item.title}
-                      </h4>
-                      <p className="text-paragraph">{item.content}</p>
-                    </div>
-                  </li>
-                )
-              })}
-            </div>
-
-            <div className="grid grid-cols-[1fr_280px] place-items-end gap-8">
-              {item.bottom.map((item) => {
-                return (
-                  <li
-                    key={item.id}
-                    className="flex max-w-[280px] flex-col gap-4 rounded-md bg-white p-6 shadow-xl"
-                  >
-                    <Image src={item.imageUrl} alt="" />
-
-                    <div>
-                      <span className="font-bold text-primary-500">
-                        {item.label}
-                      </span>
-                      <h4 className="mb-2 mt-1 text-xl font-bold">
-                        {item.title}
-                      </h4>
-                      <p className="text-paragraph">{item.content}</p>
-                    </div>
-                  </li>
-                )
-              })}
-            </div>
-          </ul>
-        )
-      })}
+      {isSm ? (
+        <GridList content={CARDS_CONTENT} />
+      ) : (
+        <DraggableList content={CARDS_CONTENT} />
+      )}
     </>
   )
 }

@@ -11,8 +11,8 @@ const TAGS_CONTENT = [
 
 export function HeroSection() {
   return (
-    <section className="mt-[137px] w-full overflow-hidden  sm:mt-[146px] lg:mt-[100px]">
-      <div className="relative flex w-full px-6 sm:h-[336px] sm:max-w-[696px] sm:p-0 sm:pl-6 lg:h-[499px] lg:max-w-[1240px]">
+    <section className="mt-[137px] w-full overflow-hidden sm:mt-[146px] lg:mt-[100px]">
+      <div className="relative flex w-full px-6 sm:h-[336px] sm:max-w-[696px] sm:p-0 sm:pl-12 lg:h-[499px] lg:max-w-[1240px]">
         <div className="flex flex-col items-center justify-center sm:max-w-[320px] sm:justify-end lg:max-w-[590px]">
           <div className="flex flex-col gap-2 sm:gap-4 lg:gap-6">
             <h1 className="text-center text-lg font-bold text-primary-500 sm:text-left sm:text-2xl lg:text-4xl">

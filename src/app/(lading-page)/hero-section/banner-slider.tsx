@@ -50,7 +50,7 @@ export function BannerSlider() {
   return (
     <div
       ref={sliderContainer}
-      className="absolute top-0 hidden overflow-hidden sm:visible sm:left-[388px] sm:flex lg:left-[44.5rem]"
+      className="absolute top-0 hidden overflow-hidden sm:visible sm:left-[398px] sm:flex lg:left-[44.5rem]"
     >
       <motion.div
         className="flex gap-10"

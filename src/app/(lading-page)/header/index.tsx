@@ -23,7 +23,7 @@ export async function Header() {
   return (
     <header className="fixed z-10 w-full border-b border-secondary-200 bg-white py-4 lg:border-none">
       <div className="relative w-full">
-        <div className="mx-auto flex w-full items-center justify-between px-4 sm:max-w-[696px] sm:px-6 lg:max-w-[1240px]">
+        <div className="mx-auto flex w-full items-center justify-between px-4 sm:max-w-[696px] sm:px-3 lg:max-w-[1240px]">
           <div className="flex w-full justify-between sm:justify-normal">
             <Image src={logo} alt="" />
             <nav className="ml-10 hidden items-center gap-6 sm:visible sm:flex">
