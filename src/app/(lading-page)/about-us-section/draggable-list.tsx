@@ -42,7 +42,7 @@ export function DraggableList({ content }: DraggableCardListProps) {
     <>
       {content.map((item, index) => {
         return (
-          <div key={index} className="visible w-full overflow-hidden sm:hidden">
+          <div key={index} className="w-full overflow-hidden">
             <motion.ul
               key={index}
               ref={containerRef}

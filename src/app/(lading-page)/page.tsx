@@ -11,9 +11,9 @@ export default function Home() {
       <Header />
       <HeroSection />
       <AboutUsSection />
-      {/* <TopCryptosSection />
+      <TopCryptosSection />
       <NewsletterSection />
-      <FooterSection /> */}
+      <FooterSection />
     </main>
   )
 }

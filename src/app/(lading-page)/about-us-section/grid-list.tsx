@@ -10,10 +10,7 @@ export function GridList({ content }: GridCardListProps) {
     <>
       {content.map((content, index) => {
         return (
-          <ul
-            key={index}
-            className="hidden sm:visible sm:flex sm:flex-col sm:gap-6 lg:gap-8"
-          >
+          <ul key={index} className="sm:flex sm:flex-col sm:gap-6 lg:gap-8">
             <div className="flex sm:grid sm:grid-cols-[280px_1fr] sm:gap-6 lg:gap-8">
               {content.top.map((item) => {
                 return <Card key={item.id} props={item} />
