@@ -127,6 +127,7 @@ module.exports = {
       },
       white: '#FFFFFF',
       black: '#000000',
+      background: '#F9F9F9',
       'text-base': '#5D6670',
       transparent: 'transparent',
     },

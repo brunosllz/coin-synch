@@ -7,13 +7,15 @@ import { TopCryptosSection } from './top-cryptos-section'
 
 export default function Home() {
   return (
-    <main className="flex w-full flex-col">
+    <>
       <Header />
-      <HeroSection />
-      <AboutUsSection />
-      <TopCryptosSection />
-      <NewsletterSection />
-      <FooterSection />
-    </main>
+      <main className="flex w-full flex-col">
+        <HeroSection />
+        <AboutUsSection />
+        <TopCryptosSection />
+        <NewsletterSection />
+        <FooterSection />
+      </main>
+    </>
   )
 }
