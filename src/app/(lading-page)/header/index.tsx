@@ -9,6 +9,8 @@ import Link from 'next/link'
 
 import logo from '@/assets/logo.svg'
 import menuIcon from '@/assets/menu-icon.svg'
+import { SignInDialog } from './sign-in-dialog'
+import { SignUpDialog } from './sign-up-dialog'
 
 export async function Header() {
   const coinCapResponse = await api.get('/assets', {
@@ -48,14 +50,18 @@ export async function Header() {
             <CoinsSlider coins={coins} />
 
             <ul className="hidden gap-1 sm:visible sm:flex">
-              <div className="w-20">
-                <Button size="sm" variant="link">
+              <SignInDialog>
+                <Button size="sm" className="w-20" variant="link">
                   Sign In
                 </Button>
-              </div>
-              <div className="w-[100px]">
-                <Button size="sm"> Sign up</Button>
-              </div>
+              </SignInDialog>
+
+              <SignUpDialog>
+                <Button className="w-[100px]" size="sm">
+                  {' '}
+                  Sign up
+                </Button>
+              </SignUpDialog>
             </ul>
           </div>
         </div>
