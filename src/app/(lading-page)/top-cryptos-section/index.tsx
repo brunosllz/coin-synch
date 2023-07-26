@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios'
 
-import { CryptoTable } from './crypto-table'
+import { CryptoPlace } from './crypto-place'
 
 export interface Coin {
   id: string
@@ -30,10 +30,11 @@ export async function TopCryptosSection() {
 
   return (
     <section id="top-cryptos" className="w-full">
-      <div className="mx-auto flex w-full max-w-[1216px] flex-col items-center py-[120px]">
-        <h3 className="mb-12 text-2xl font-bold">Top Cryptos</h3>
-
-        <CryptoTable coins={coins} />
+      <div className="mx-auto flex w-full flex-col items-center py-14 sm:max-w-[696px] sm:px-3 sm:py-[120px] lg:max-w-[1240px]">
+        <h3 className="mb-4 text-lg font-bold sm:mb-12 sm:text-xl lg:text-2xl">
+          Top Cryptos
+        </h3>
+        <CryptoPlace coins={coins} />
       </div>
     </section>
   )

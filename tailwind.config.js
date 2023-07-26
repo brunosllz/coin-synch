@@ -128,6 +128,7 @@ module.exports = {
       white: '#FFFFFF',
       black: '#000000',
       'text-base': '#5D6670',
+      transparent: 'transparent',
     },
     extend: {
       keyframes: {
