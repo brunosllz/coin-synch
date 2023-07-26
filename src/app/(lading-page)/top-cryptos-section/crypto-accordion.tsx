@@ -20,19 +20,23 @@ import { Plus, Minus } from 'lucide-react'
 
 interface CryptoAccordionProps {
   coins: Coin[]
+  amountCoinsForViewMore?: number
 }
 
-export function CryptoAccordion({ coins }: CryptoAccordionProps) {
+export function CryptoAccordion({
+  coins,
+  amountCoinsForViewMore = 10,
+}: CryptoAccordionProps) {
   const [amountCoinsShow, setAmountCoinsShow] = useState(4)
   const [isOpen, setIsOpen] = useState('')
   const filteredCoins = coins.slice(0, amountCoinsShow)
 
   function handleChangeAmountCoinsShow() {
-    if (amountCoinsShow === 4) {
-      return setAmountCoinsShow(10)
+    if (amountCoinsShow === amountCoinsForViewMore) {
+      return setAmountCoinsShow(4)
     }
 
-    setAmountCoinsShow(4)
+    setAmountCoinsShow(amountCoinsForViewMore)
   }
 
   return (

@@ -22,20 +22,24 @@ import { useBreakpoint } from '@/hooks/use-breakpoints'
 
 interface CryptoTableProps {
   coins: Coin[]
+  amountCoinsForViewMore?: number
 }
 
-export function CryptoTable({ coins }: CryptoTableProps) {
+export function CryptoTable({
+  coins,
+  amountCoinsForViewMore = 10,
+}: CryptoTableProps) {
   const [amountCoinsShow, setAmountCoinsShow] = useState(4)
   const { isLg } = useBreakpoint('lg')
 
   const filteredCoins = coins.slice(0, amountCoinsShow)
 
   function handleChangeAmountCoinsShow() {
-    if (amountCoinsShow === 4) {
-      return setAmountCoinsShow(10)
+    if (amountCoinsShow === amountCoinsForViewMore) {
+      return setAmountCoinsShow(4)
     }
 
-    setAmountCoinsShow(4)
+    setAmountCoinsShow(amountCoinsForViewMore)
   }
 
   return (
@@ -92,11 +96,9 @@ export function CryptoTable({ coins }: CryptoTableProps) {
                 </TableCell>
 
                 <TableCell style={{ width: isLg ? '6.62%' : '2%' }}>
-                  <div className="w-20">
-                    <Button size="sm" variant="secondary">
-                      Buy
-                    </Button>
-                  </div>
+                  <Button size="sm" variant="secondary" className="w-20">
+                    Buy
+                  </Button>
                 </TableCell>
               </TableRow>
             )

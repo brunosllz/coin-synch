@@ -17,6 +17,9 @@ export async function TopCryptosSection() {
     headers: {
       Authorization: 'Bearer 3de67136-c80c-4ee5-8b67-64a10aa465cf',
     },
+    params: {
+      limit: 10,
+    },
   })
 
   const coinCapResponseData = coinCapResponse.data.data as Coin[]
