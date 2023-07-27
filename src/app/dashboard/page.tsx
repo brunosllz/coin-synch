@@ -1,13 +1,14 @@
+import { Metadata } from 'next'
+
 import Image from 'next/image'
+import { Wallet } from './wallet'
+import { Button } from '@/components/ui/button'
 
 import { Plus } from 'lucide-react'
-import wallet from '@/assets/wallet.svg'
-import walletEmpty from '@/assets/wallet-empty.svg'
-
 import lawBalance from '@/assets/law-balance.svg'
 import elephantSuggestion from '@/assets/elephant-suggestion.png'
-import { Button } from '@/components/ui/button'
-import { Metadata } from 'next'
+import wallet from '@/assets/wallet.svg'
+import { AddCryptoDialog } from './add-crypto-dialog'
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -86,21 +87,15 @@ export default function DashBoard() {
               <h3 className="text-xl font-bold">My Wallet</h3>
             </div>
 
-            <Button size="sm" className="w-[120px] gap-2 text-sm">
-              <Plus size={16} />
-              Add crypto
-            </Button>
+            <AddCryptoDialog>
+              <Button size="sm" className="w-[120px] gap-2 text-sm">
+                <Plus size={16} />
+                Add crypto
+              </Button>
+            </AddCryptoDialog>
           </header>
 
-          <div className="flex w-full flex-col">
-            <div className="flex flex-col items-center justify-center py-20">
-              <Image src={walletEmpty} alt="" />
-              <span className="mb-2 mt-6 text-lg font-bold">
-                Nothing here yet...
-              </span>
-              <span className="text-sm">Add a crypto and start earning</span>
-            </div>
-          </div>
+          <Wallet />
         </div>
       </div>
     </main>

@@ -41,7 +41,7 @@ export function SignInDialog({ children }: SignInDialogProps) {
               <Image src={mail} alt="" />
               <Input
                 placeholder="Email"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
 
@@ -49,7 +49,7 @@ export function SignInDialog({ children }: SignInDialogProps) {
               <Image src={lock} alt="" />
               <Input
                 placeholder="Password"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <Eye size={18} className="text-secondary-300" />
             </div>

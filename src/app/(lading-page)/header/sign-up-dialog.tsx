@@ -44,7 +44,7 @@ export function SignUpDialog({ children }: SignUpDialogProps) {
               <Image src={user} alt="" />
               <Input
                 placeholder="Name"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
 
@@ -52,7 +52,7 @@ export function SignUpDialog({ children }: SignUpDialogProps) {
               <Image src={mail} alt="" />
               <Input
                 placeholder="Email"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
             </div>
 
@@ -60,7 +60,7 @@ export function SignUpDialog({ children }: SignUpDialogProps) {
               <Image src={lock} alt="" />
               <Input
                 placeholder="Password"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <Eye size={18} className="text-secondary-300" />
             </div>
@@ -69,7 +69,7 @@ export function SignUpDialog({ children }: SignUpDialogProps) {
               <Image src={lock} alt="" />
               <Input
                 placeholder="Confirm Password"
-                className="pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <Eye size={18} className="text-secondary-300" />
             </div>
