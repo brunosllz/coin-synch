@@ -36,7 +36,7 @@ const NAV_LINKS = [
 
 export function Sidebar() {
   return (
-    <aside className="relative flex h-full flex-col border-y border-secondary-300 bg-white pb-16 pl-6 pr-[30px] pt-12">
+    <aside className="relative hidden h-full flex-col border-y border-secondary-300 bg-white pb-16 pl-6 pr-[30px] pt-12 lg:flex">
       <nav>
         <ul className="flex flex-col gap-8">
           {NAV_LINKS.map((link) => {

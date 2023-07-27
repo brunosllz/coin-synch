@@ -8,10 +8,15 @@ import {
   PopoverContent,
 } from '@/components/ui/popover'
 import { Logout } from '@/assets/logout'
+import { MenuIcon } from '@/assets/menu-icon'
 
 export function Header() {
   return (
     <header className="relative flex w-full shrink-0 items-center justify-between px-10 py-4 shadow-lg">
+      <div className=" lg:hidden">
+        <MenuIcon />
+      </div>
+
       <Image src={logo} alt="" />
 
       <Popover>
