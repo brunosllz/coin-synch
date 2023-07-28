@@ -1,3 +1,4 @@
+import { env } from '@/env'
 import axios from 'axios'
 
 const coinCapApi = axios.create({
@@ -5,7 +6,7 @@ const coinCapApi = axios.create({
 })
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: env.NEXT_PUBLIC_VERCEL_URL,
 })
 
 export { coinCapApi, api }

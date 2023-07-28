@@ -1,6 +1,7 @@
 import { coinCapApi } from '@/lib/axios'
 import { Coin } from '../top-cryptos-section'
 import { formatCoinsToRealCurrency } from '@/utils/format-coins-to-real-currency'
+import { env } from '@/env'
 
 import { Button } from '@/components/ui/button'
 import { CoinsSlider } from './coins-slider'
@@ -15,7 +16,7 @@ import menuIcon from '@/assets/menu-icon.svg'
 export async function Header() {
   const coinCapResponse = await coinCapApi.get('/assets', {
     headers: {
-      Authorization: 'Bearer 3de67136-c80c-4ee5-8b67-64a10aa465cf',
+      Authorization: `Bearer ${env.COIN_CAP_API_KEY}`,
     },
   })
 
