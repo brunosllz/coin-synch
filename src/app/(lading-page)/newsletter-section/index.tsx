@@ -1,4 +1,10 @@
+// import dynamic from 'next/dynamic'
+
 import { SubscribeForm } from './subscribe-form'
+
+// const DynamicComponent = dynamic(() =>
+//   import('./subscribe-form').then((mod) => mod.SubscribeForm),
+// )
 
 export function NewsletterSection() {
   return (

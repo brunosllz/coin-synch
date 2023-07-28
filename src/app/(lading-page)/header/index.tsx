@@ -1,4 +1,4 @@
-import { api } from '@/lib/axios'
+import { coinCapApi } from '@/lib/axios'
 import { Coin } from '../top-cryptos-section'
 import { formatCoinsToRealCurrency } from '@/utils/format-coins-to-real-currency'
 
@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/button'
 import { CoinsSlider } from './coins-slider'
 import Image from 'next/image'
 import Link from 'next/link'
+import { SignUpDialog } from './sign-up-dialog'
+import { SignInDialog } from './sign-in-dialog'
 
 import logo from '@/assets/logo.svg'
 import menuIcon from '@/assets/menu-icon.svg'
-import { SignInDialog } from './sign-in-dialog'
-import { SignUpDialog } from './sign-up-dialog'
 
 export async function Header() {
-  const coinCapResponse = await api.get('/assets', {
+  const coinCapResponse = await coinCapApi.get('/assets', {
     headers: {
       Authorization: 'Bearer 3de67136-c80c-4ee5-8b67-64a10aa465cf',
     },

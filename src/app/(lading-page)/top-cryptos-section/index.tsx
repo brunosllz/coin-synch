@@ -1,4 +1,4 @@
-import { api } from '@/lib/axios'
+import { coinCapApi } from '@/lib/axios'
 
 import { CryptoPlace } from './crypto-place'
 
@@ -13,7 +13,7 @@ export interface Coin {
 }
 
 export async function TopCryptosSection() {
-  const coinCapResponse = await api.get('/assets', {
+  const coinCapResponse = await coinCapApi.get('/assets', {
     headers: {
       Authorization: 'Bearer 3de67136-c80c-4ee5-8b67-64a10aa465cf',
     },
