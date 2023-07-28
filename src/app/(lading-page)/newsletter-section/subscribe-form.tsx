@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input'
 
 const subscribeNewsletterSchema = z.object({
   email: z
-    .string()
+    .string({ required_error: 'Insira o seu email.' })
     .min(1, { message: 'Insira o seu email.' })
     .email({ message: 'Insira um email válido.' }),
 })
@@ -28,10 +28,14 @@ type SubscribeNewsletter = z.infer<typeof subscribeNewsletterSchema>
 export function SubscribeForm() {
   const form = useForm<SubscribeNewsletter>({
     resolver: zodResolver(subscribeNewsletterSchema),
+    defaultValues: {
+      email: '',
+    },
   })
   const {
     handleSubmit,
     control,
+    reset,
     formState: { isSubmitting },
   } = form
 
@@ -39,6 +43,7 @@ export function SubscribeForm() {
     await api.post('/newsletter', {
       email,
     })
+    reset()
   }
 
   return (
