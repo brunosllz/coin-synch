@@ -7,14 +7,12 @@ import {
   DialogContent,
   DialogTitle,
 } from '@/components/ui/dialog'
-
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 
+import { Mail } from '@/assets/mail'
+import { Lock } from '@/assets/lock'
 import { Eye } from 'lucide-react'
-import mail from '@/assets/mail.svg'
-import lock from '@/assets/lock.svg'
 
 interface SignInDialogProps {
   children: ReactNode
@@ -38,7 +36,7 @@ export function SignInDialog({ children }: SignInDialogProps) {
         <form className="flex flex-col">
           <div className="gap flex flex-col gap-6 ">
             <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-              <Image src={mail} alt="" />
+              <Mail />
               <Input
                 placeholder="Email"
                 className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -46,7 +44,7 @@ export function SignInDialog({ children }: SignInDialogProps) {
             </div>
 
             <div className="flex items-center rounded-md border border-secondary-300 px-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-              <Image src={lock} alt="" />
+              <Lock />
               <Input
                 placeholder="Password"
                 className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"

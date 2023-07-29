@@ -94,7 +94,7 @@ const FormLabel = React.forwardRef<
     <Label
       ref={ref}
       className={cn(
-        'text-sm text-white',
+        'text-sm',
         {
           'text-quaternary-700': error,
         },
@@ -139,7 +139,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn('text-slate-500 dark:text-slate-400 text-sm', className)}
+      className={cn('', className)}
       {...props}
     />
   )

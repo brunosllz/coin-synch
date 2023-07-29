@@ -11,7 +11,7 @@ import { SignUpDialog } from './sign-up-dialog'
 import { SignInDialog } from './sign-in-dialog'
 
 import logo from '@/assets/logo.svg'
-import menuIcon from '@/assets/menu-icon.svg'
+import { MenuIcon } from '@/assets/menu-icon'
 
 export async function Header() {
   const coinCapResponse = await coinCapApi.get('/assets', {
@@ -38,13 +38,7 @@ export async function Header() {
               </Link>
             </nav>
 
-            <Image
-              src={menuIcon}
-              alt=""
-              width={24}
-              height={24}
-              className="sm:hidden"
-            />
+            <MenuIcon />
           </div>
 
           <div className="items-center gap-20 sm:flex">

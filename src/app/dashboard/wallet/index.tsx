@@ -1,11 +1,13 @@
-import { api } from '@/lib/axios'
-import { WalletTable } from './wallet-table'
+import { coinCapApi } from '@/lib/axios'
+import { env } from '@/env'
 import { Coin } from '../../(lading-page)/top-cryptos-section'
 
+import { WalletTable } from './wallet-table'
+
 export async function Wallet() {
-  const coinCapResponse = await api.get('/assets', {
+  const coinCapResponse = await coinCapApi.get('/assets', {
     headers: {
-      Authorization: 'Bearer 3de67136-c80c-4ee5-8b67-64a10aa465cf',
+      Authorization: `Bearer ${env.COIN_CAP_API_KEY} `,
     },
     params: {
       limit: 10,
