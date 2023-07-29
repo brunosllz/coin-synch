@@ -3,12 +3,9 @@ import { Coin } from '../top-cryptos-section'
 import { formatCoinsToRealCurrency } from '@/utils/format-coins-to-real-currency'
 import { env } from '@/env'
 
-import { Button } from '@/components/ui/button'
 import { CoinsSlider } from './coins-slider'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SignUpDialog } from './sign-up-dialog'
-import { SignInDialog } from './sign-in-dialog'
 
 import logo from '@/assets/logo.svg'
 import { MenuIcon } from '@/assets/menu-icon'
@@ -44,19 +41,20 @@ export async function Header() {
           <div className="items-center gap-20 sm:flex">
             <CoinsSlider coins={coins} />
 
-            <ul className="hidden gap-1 sm:visible sm:flex">
-              <SignInDialog>
-                <Button size="sm" className="w-20" variant="link">
-                  Sign In
-                </Button>
-              </SignInDialog>
+            <ul className="hidden gap-1 sm:visible sm:flex sm:w-auto">
+              <Link
+                href="/sign-in"
+                className="inline-flex h-8 w-[100px] items-center justify-center rounded-full py-2 text-sm underline-offset-4 ring-offset-white transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+              >
+                Sign In
+              </Link>
 
-              <SignUpDialog>
-                <Button className="w-[100px]" size="sm">
-                  {' '}
-                  Sign up
-                </Button>
-              </SignUpDialog>
+              <Link
+                href="/sign-up"
+                className="'bg-primary-500 inline-flex h-8 w-[100px] items-center justify-center rounded-full bg-primary-500  py-2 text-sm text-white ring-offset-white transition-colors  hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+              >
+                Sign Up
+              </Link>
             </ul>
           </div>
         </div>

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 import logo from '@/assets/logo.svg'
@@ -9,6 +11,8 @@ import {
 } from '@/components/ui/popover'
 import { Logout } from '@/assets/logout'
 import { MenuIcon } from '@/assets/menu-icon'
+import { Button } from '@/components/ui/button'
+import { signOut } from 'next-auth/react'
 
 export function Header() {
   return (
@@ -33,10 +37,10 @@ export function Header() {
           </div>
         </PopoverTrigger>
         <PopoverContent>
-          <span className="flex items-center gap-4">
+          <Button className="flex items-center gap-4" onClick={() => signOut()}>
             <Logout />
             Logout
-          </span>
+          </Button>
         </PopoverContent>
       </Popover>
     </header>

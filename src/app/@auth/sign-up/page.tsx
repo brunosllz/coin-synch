@@ -1,23 +1,15 @@
-import { ReactNode } from 'react'
-
 import {
   DialogHeader,
   Dialog,
-  DialogTrigger,
-  DialogContent,
   DialogTitle,
+  DialogParallelContent,
 } from '@/components/ui/dialog'
 import { SignUpForm } from './sign-up-form'
 
-interface SignUpDialogProps {
-  children: ReactNode
-}
-
-export function SignUpDialog({ children }: SignUpDialogProps) {
+export default function SignUp() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent>
+    <Dialog open>
+      <DialogParallelContent>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-1 text-xl font-normal">
             Sign in to{' '}
@@ -41,7 +33,7 @@ export function SignUpDialog({ children }: SignUpDialogProps) {
             </span>
           </a>
         </span>
-      </DialogContent>
+      </DialogParallelContent>
     </Dialog>
   )
 }

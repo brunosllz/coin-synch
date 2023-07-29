@@ -12,13 +12,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  auth,
 }: {
   children: React.ReactNode
+  auth: React.ReactNode
 }) {
   return (
     <html lang="en" className="antialiased">
       <body className={Roboto.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {auth}
+          {children}
+        </Providers>
       </body>
     </html>
   )
