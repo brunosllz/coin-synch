@@ -18,25 +18,25 @@ export function MenuIcon({ className, ...props }: TradeProps) {
           cx="12"
           cy="12"
           r="9"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M7.25 11.9999H16.75"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M7.25 15.25H16.75"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M7.25 8.75H16.75"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
         />

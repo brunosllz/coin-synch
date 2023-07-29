@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { z } from 'zod'
+import { hash } from 'bcryptjs'
 
 const creteUserSchema = z.object({
   name: z.string().min(1),
@@ -12,11 +13,13 @@ export async function POST(request: Request) {
 
   const { email, password, name } = creteUserSchema.parse(requestBody)
 
+  const hashedPassword = await hash(password, 8)
+
   await prisma.user.create({
     data: {
       email,
       name,
-      password,
+      password: hashedPassword,
     },
   })
 

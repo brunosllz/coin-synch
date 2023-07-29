@@ -1,0 +1,24 @@
+import { getToken } from 'next-auth/jwt'
+import { withAuth } from 'next-auth/middleware'
+import { NextFetchEvent, NextRequest, NextResponse } from 'next/server'
+
+export default async function middleware(
+  req: NextRequest,
+  event: NextFetchEvent,
+) {
+  const token = await getToken({ req })
+  const isAuthenticated = !!token
+
+  if (req.nextUrl.pathname === '/' && isAuthenticated) {
+    return NextResponse.redirect(new URL('/dashboard', req.url))
+  }
+
+  const authMiddleware = withAuth({
+    pages: {
+      signIn: `/`,
+    },
+  })
+
+  /** @ts-expect-error - different type */
+  return authMiddleware(req, event)
+}

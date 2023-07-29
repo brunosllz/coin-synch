@@ -17,7 +17,8 @@ export const env = createEnv({
   server: {
     DATABASE_URL: z.string().min(1),
     COIN_CAP_API_KEY: z.string().min(1),
-    // NEXTAUTH_SECRET: z.string().min(1),
+    NEXTAUTH_SECRET: z.string().min(1),
+    NEXTAUTH_URL: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_VERCEL_URL: z.string().url().min(1),

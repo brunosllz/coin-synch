@@ -1,4 +1,7 @@
+'use client'
+
 import { ReactNode } from 'react'
+import { signIn } from 'next-auth/react'
 
 import {
   DialogHeader,
@@ -13,12 +16,31 @@ import { Button } from '@/components/ui/button'
 import { Mail } from '@/assets/mail'
 import { Lock } from '@/assets/lock'
 import { Eye } from 'lucide-react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 interface SignInDialogProps {
   children: ReactNode
 }
 
+const signInSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+})
+
+type SignIn = z.infer<typeof signInSchema>
+
 export function SignInDialog({ children }: SignInDialogProps) {
+  const { handleSubmit, register } = useForm<SignIn>({})
+
+  function handleSignIn({ email, password }: SignIn) {
+    signIn('credentials', {
+      email,
+      password,
+      callbackUrl: '/dashboard',
+    })
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -33,13 +55,14 @@ export function SignInDialog({ children }: SignInDialogProps) {
           </DialogTitle>
         </DialogHeader>
 
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit(handleSignIn)}>
           <div className="gap flex flex-col gap-6 ">
             <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
               <Mail />
               <Input
                 placeholder="Email"
                 className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                {...register('email')}
               />
             </div>
 
@@ -48,6 +71,7 @@ export function SignInDialog({ children }: SignInDialogProps) {
               <Input
                 placeholder="Password"
                 className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                {...register('password')}
               />
               <Eye size={18} className="text-secondary-300" />
             </div>

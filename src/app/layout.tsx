@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto_Flex } from 'next/font/google'
 
 import './globals.css'
+import { Providers } from './providers'
 const Roboto = Roboto_Flex({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="antialiased">
-      <body className={Roboto.className}>{children}</body>
+      <body className={Roboto.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
