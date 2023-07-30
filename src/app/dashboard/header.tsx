@@ -16,7 +16,7 @@ import { signOut } from 'next-auth/react'
 
 export function Header() {
   return (
-    <header className="relative flex w-full shrink-0 items-center justify-between px-10 py-4 shadow-lg">
+    <header className="relative flex w-full shrink-0 items-center justify-between px-6 py-4 shadow-lg sm:px-10">
       <div className=" lg:hidden">
         <MenuIcon />
       </div>
@@ -32,8 +32,8 @@ export function Header() {
               width={32}
               height={32}
             />
-            <span className="ml-2 mr-1 text-sm ">Bruno</span>
-            <ChevronDown size={16} />
+            <span className="ml-2 hidden text-sm sm:block">Bruno</span>
+            <ChevronDown size={16} className="ml-1" />
           </div>
         </PopoverTrigger>
         <PopoverContent>
