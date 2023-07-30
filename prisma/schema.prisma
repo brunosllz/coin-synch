@@ -16,22 +16,34 @@ model Newsletter {
 }
 
 model User {
-  id          String        @id @default(cuid())
-  name        String
-  email       String        @unique
-  password    String
-  createdAt   DateTime      @default(now())
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
 
+  transactions Transaction[]
+  wallet       Wallet[]
+}
+
+model Wallet {
+  id      String @id @default(cuid())
+  assetId String @unique
+  balance Int @default(0)
+  userId       String
+
+  user         User          @relation(fields: [userId], references: [id])
   transactions Transaction[]
 }
 
 model Transaction {
-  id              String @id @default(cuid())
+  id              String   @id @default(cuid())
   assetId         String
   amount          Int
   transactionType String
+  userId          String
+  createdAt       DateTime @default(now())
 
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
+  wallet Wallet @relation(fields: [assetId], references: [assetId])
+  user   User   @relation(fields: [userId], references: [id])
 }

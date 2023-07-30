@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { api } from '@/lib/axios'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from 'next-auth/react'
 
 import {
   Form,
@@ -65,18 +66,21 @@ export function SignUpForm() {
   const {
     handleSubmit,
     control,
-    reset,
     formState: { isSubmitting },
   } = form
 
   async function handleSignUp({ email, password, name }: SignUp) {
-    await api.post('/auth/sign-up', {
+    await api.post('/api/auth/sign-up', {
       email,
       password,
       name,
     })
 
-    reset()
+    signIn('credentials', {
+      email,
+      password,
+      callbackUrl: '/dashboard',
+    })
   }
 
   return (

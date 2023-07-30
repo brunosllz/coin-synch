@@ -15,7 +15,7 @@ import {
 import { Input } from '@/components/ui/input'
 import Image from 'next/image'
 import { ChevronRight } from 'lucide-react'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { api } from '@/lib/axios'
 import { z } from 'zod'
 import { useSession } from 'next-auth/react'
@@ -38,21 +38,35 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
   })
   const { handleSubmit, control, register } = form
   const { data: session } = useSession()
+  const queryClient = useQueryClient()
 
-  const { mutateAsync: addCrypto } = useMutation(async (data: AddCrypto) => {
-    console.log(data)
+  const { mutateAsync: addCrypto } = useMutation(
+    async (data: AddCrypto) => {
+      console.log(data)
 
-    await api.post(`/api/user/${session?.userId}/transactions`, {
-      amount: data.amount,
-      assetId: data.asset,
-      transactionType: 'TRANSFER_IN',
-    })
-  })
+      await api.post(`/api/user/${session?.userId}/transactions`, {
+        amount: data.amount,
+        assetId: data.asset,
+        transactionType: 'TRANSFER_IN',
+      })
+    },
+    {
+      onSuccess() {
+        queryClient.invalidateQueries(['wallet'])
+      },
+      onError(error) {
+        // TODO: add an observer - datadog/sentry
+        console.log(error)
+      },
+    },
+  )
 
   async function handleAddCrypto({ amount, asset }: AddCrypto) {
     try {
       await addCrypto({ amount, asset })
-    } catch {}
+    } catch {
+      // TODO: Implement toast component
+    }
   }
 
   return (
