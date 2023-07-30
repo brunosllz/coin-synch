@@ -14,6 +14,7 @@ interface SaveTransaction {
   }
 }
 
+// TODO: refactor this code
 export async function POST(request: Request, { params }: SaveTransaction) {
   const userId = params.id
   const requestBody = await request.json()
@@ -72,14 +73,27 @@ export async function POST(request: Request, { params }: SaveTransaction) {
     newBalanceAmount = calculateTransaction
   }
 
-  await prisma.wallet.update({
-    where: {
-      assetId: assetWallet.assetId,
-    },
-    data: {
-      balance: newBalanceAmount,
-    },
-  })
+  if (newBalanceAmount === 0) {
+    await prisma.wallet.update({
+      where: {
+        assetId: assetWallet.assetId,
+      },
+      data: {
+        balance: newBalanceAmount,
+        isDisabled: true,
+      },
+    })
+  } else {
+    await prisma.wallet.update({
+      where: {
+        assetId: assetWallet.assetId,
+      },
+      data: {
+        balance: newBalanceAmount,
+        isDisabled: false,
+      },
+    })
+  }
 
   await prisma.transaction.create({
     data: {

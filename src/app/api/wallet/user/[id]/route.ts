@@ -23,7 +23,20 @@ export async function GET(_: Request, { params }: GetWallet) {
 
   const wallet = await prisma.wallet.findMany({
     where: {
-      userId,
+      AND: [
+        {
+          user: {
+            id: userId,
+          },
+        },
+        {
+          NOT: [
+            {
+              isDisabled: true,
+            },
+          ],
+        },
+      ],
     },
   })
 

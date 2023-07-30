@@ -42,9 +42,7 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
 
   const { mutateAsync: addCrypto } = useMutation(
     async (data: AddCrypto) => {
-      console.log(data)
-
-      await api.post(`/api/user/${session?.userId}/transactions`, {
+      await api.post(`/api/wallet/user/${session?.userId}/transactions`, {
         amount: data.amount,
         assetId: data.asset,
         transactionType: 'TRANSFER_IN',
@@ -56,7 +54,7 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
       },
       onError(error) {
         // TODO: add an observer - datadog/sentry
-        console.log(error)
+        console.error(error)
       },
     },
   )

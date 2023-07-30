@@ -38,11 +38,13 @@ export function WalletTable() {
   const { data: wallet, isLoading: isLoadingWallet } = useQuery<Wallet[]>({
     queryKey: ['wallet'],
     queryFn: async () => {
-      const { data } = await api.get(`/api/user/${session?.userId}/wallet`)
+      const { data } = await api.get(`/api/wallet/user/${session?.userId}`)
 
       return data
     },
     enabled: !!userId,
+    refetchIntervalInBackground: false,
+    refetchOnWindowFocus: false,
   })
 
   const hasAssets = wallet?.length! > 0
@@ -109,7 +111,7 @@ export function WalletTable() {
                   </TableCell>
 
                   <TableCell style={{ width: '6.62%' }}>
-                    <TradeCryptoDialog>
+                    <TradeCryptoDialog asset={asset}>
                       <Button size="icon" variant="ghost" className="group">
                         <Trade className="group-hover:stroke-secondary-700" />
                       </Button>
