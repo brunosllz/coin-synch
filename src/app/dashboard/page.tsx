@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default async function DashBoard() {
   return (
     <main className="h-full flex-[1_1_auto] overflow-y-scroll bg-background">
-      <div className="mx-auto mt-14 flex flex-col sm:max-w-[696px] sm:px-3 lg:max-w-[1240px]">
+      <div className="mx-auto mt-6 flex flex-col px-6 sm:mt-14 sm:max-w-[704px] sm:px-4 lg:max-w-[1240px]">
         <CardsInfo />
 
         <div className="mt-8 flex flex-col overflow-hidden rounded-lg bg-white shadow-lg">

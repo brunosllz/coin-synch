@@ -3,7 +3,7 @@ import { BalanceCard } from './balance-card'
 
 export function CardsInfo() {
   return (
-    <div className="flex flex-col items-center gap-8 xl:flex-row">
+    <div className="flex flex-col items-center gap-4 sm:gap-8 xl:flex-row">
       <BalanceCard />
       <InfoCards />
     </div>
