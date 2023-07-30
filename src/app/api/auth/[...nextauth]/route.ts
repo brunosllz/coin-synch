@@ -46,10 +46,14 @@ const handler = NextAuth({
       if (user) {
         token.user = user
       }
+
       return Promise.resolve(token)
     },
     async session({ session, token }) {
-      session.user = token.user as User
+      if (token) {
+        session.userId = token.sub
+        session.user = token.user as User
+      }
 
       return Promise.resolve(session)
     },
@@ -59,7 +63,7 @@ const handler = NextAuth({
   },
   pages: {
     signIn: '/sign-in',
-    // error: '/auth/error',
+    signOut: '/',
   },
 })
 

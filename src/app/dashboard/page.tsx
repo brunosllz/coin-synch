@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Dashboard',
 }
 
-export default function DashBoard() {
+export default async function DashBoard() {
   return (
     <main className="h-full flex-[1_1_auto] overflow-y-scroll bg-background">
       <div className="mx-auto mt-14 flex flex-col sm:max-w-[696px] sm:px-3 lg:max-w-[1240px]">

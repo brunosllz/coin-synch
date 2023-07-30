@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/dialog'
 
 import { SignInForm } from './sign-in-form'
+import Link from 'next/link'
 
 export default function SignIn() {
   return (
@@ -25,14 +26,14 @@ export default function SignIn() {
 
         <span className="text-center text-sm">
           Don’t have an account?
-          <a className="text-sm font-bold">
+          <Link href="/sign-up" className="cursor-pointer text-sm font-bold">
             {' '}
             Sign up to{' '}
             <span className="text-sm font-bold text-secondary-500">
               <span className="text-sm font-bold text-primary-500">Coin</span>
               Synch
             </span>
-          </a>
+          </Link>
         </span>
       </DialogParallelContent>
     </Dialog>

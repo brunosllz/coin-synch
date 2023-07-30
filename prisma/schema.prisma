@@ -15,11 +15,23 @@ model Newsletter {
   email String
 }
 
-
 model User {
-  id String @id @default(cuid())
-  name String
-  email String @unique
-  password String
+  id          String        @id @default(cuid())
+  name        String
+  email       String        @unique
+  password    String
+  createdAt   DateTime      @default(now())
+
+  transactions Transaction[]
+}
+
+model Transaction {
+  id              String @id @default(cuid())
+  assetId         String
+  amount          Int
+  transactionType String
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }
