@@ -20,6 +20,7 @@ import { TradeCryptoDialog } from '../trade-crypto-dialog'
 
 import { Trade } from '@/assets/trade'
 import { WalletEmpty } from './wallet-empty'
+import { useBreakpoint } from '@/hooks/use-breakpoints'
 
 interface Wallet {
   id: string
@@ -34,6 +35,7 @@ interface Wallet {
 export function WalletTable() {
   const { data: session } = useSession()
   const userId = session?.userId
+  const { isLg } = useBreakpoint('lg')
 
   const { data: wallet, isLoading: isLoadingWallet } = useQuery<Wallet[]>({
     queryKey: ['wallet'],
@@ -74,14 +76,14 @@ export function WalletTable() {
                 <TableRow key={asset.id}>
                   <TableCell
                     className="text-sm text-secondary-500"
-                    style={{ width: '11.42%' }}
+                    style={{ width: isLg ? '11.42%' : '2%' }}
                   >
                     {asset.rank.padStart(2, '0')}
                   </TableCell>
 
                   <TableCell
-                    className="flex items-center gap-4"
-                    style={{ width: '29.47%' }}
+                    className="flex items-center"
+                    style={{ width: isLg ? '29.47%' : '60%' }}
                   >
                     <Image
                       src={asset.imageUrl}
@@ -90,11 +92,13 @@ export function WalletTable() {
                       height={32}
                       className="h-8 w-8"
                     />
-                    {asset.assetId}
-                    <span>{asset.symbol}</span>
+                    <span className="ml-4 flex gap-0.5">
+                      {asset.assetId}{' '}
+                      <span className="text-secondary-500">{asset.symbol}</span>
+                    </span>
                   </TableCell>
 
-                  <TableCell style={{ width: '26.73%' }}>
+                  <TableCell style={{ width: isLg ? '26.73%' : '15%' }}>
                     <div className="flex flex-col gap-1 text-sm">
                       {formatPriceToDollar(asset.balance.toString())}
                       <span className="text-sm text-primary-500">434 SOL</span>
@@ -105,12 +109,12 @@ export function WalletTable() {
                     className={cn('text-tertiary-700', {
                       'text-quaternary-700': isNegative,
                     })}
-                    style={{ width: '22.43%' }}
+                    style={{ width: isLg ? '22.43%' : '15%' }}
                   >
                     {asset.changePercent}
                   </TableCell>
 
-                  <TableCell style={{ width: '6.62%' }}>
+                  <TableCell style={{ width: isLg ? '6.62%' : '2%' }}>
                     <TradeCryptoDialog asset={asset}>
                       <Button size="icon" variant="ghost" className="group">
                         <Trade className="group-hover:stroke-secondary-700" />

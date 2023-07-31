@@ -16,21 +16,24 @@ export const metadata: Metadata = {
 
 export default async function DashBoard() {
   return (
-    <main className="h-full flex-[1_1_auto] overflow-y-scroll bg-background">
-      <div className="mx-auto mt-6 flex flex-col px-6 sm:mt-14 sm:max-w-[704px] sm:px-4 lg:max-w-[1240px]">
+    <main className="flex h-full flex-[1_1_auto] flex-col justify-between overflow-y-scroll bg-white lg:bg-background">
+      <div className="mx-auto mt-6 flex flex-col px-6 sm:mt-14 sm:max-w-[704px] sm:px-4 lg:mb-20 lg:max-w-[1240px]">
         <CardsInfo />
 
-        <div className="mt-8 flex flex-col overflow-hidden rounded-lg bg-white shadow-lg">
-          <header className="flex items-center justify-between border-b border-secondary-200 p-6">
+        <div className="mt-6 flex flex-col rounded-lg bg-white sm:mt-8 sm:overflow-hidden sm:shadow-lg">
+          <header className="flex items-center justify-between pb-4 sm:border-b sm:border-secondary-200 sm:px-6 sm:py-6">
             <div className="flex gap-4">
               <Image src={wallet} alt="" width={32} height={32} />
-              <h3 className="text-xl font-bold">My Wallet</h3>
+              <h3 className="tsm:text-xl text-lg font-bold">My Wallet</h3>
             </div>
 
             <AddCryptoDialog>
-              <Button size="sm" className="w-[120px] gap-2 text-sm">
-                <Plus size={16} />
-                Add crypto
+              <Button
+                size="sm"
+                className="h-auto w-auto gap-2 p-[6px] text-sm sm:h-8 sm:w-[120px] sm:py-2 sm:text-sm"
+              >
+                <Plus size={16} className="h-3 w-3" strokeWidth={2.5} />
+                <span className="hidden text-sm sm:block">Add crypto</span>
               </Button>
             </AddCryptoDialog>
           </header>
@@ -38,6 +41,10 @@ export default async function DashBoard() {
           <Wallet />
         </div>
       </div>
+
+      <footer className="mt-20 flex w-full items-center justify-center bg-white py-6 shadow-[0_10px_28px_-10px_hsla(206,22%,7%,.35),0_10px_15px_-15px_hsla(206,22%,7%,.2)] lg:hidden ">
+        <span className="text-sm">Copyright © 2022 - All rights reserved</span>
+      </footer>
     </main>
   )
 }

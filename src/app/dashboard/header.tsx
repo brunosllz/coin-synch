@@ -16,7 +16,7 @@ import { signOut } from 'next-auth/react'
 
 export function Header() {
   return (
-    <header className="relative flex w-full shrink-0 items-center justify-between px-6 py-4 shadow-lg sm:px-10">
+    <header className="relative flex w-full shrink-0 items-center justify-between px-6 py-4 shadow-md sm:px-10">
       <div className=" lg:hidden">
         <MenuIcon />
       </div>

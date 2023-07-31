@@ -87,19 +87,35 @@ export function TradeCryptoForm({ balance, cryptoId }: TradeCryptoProps) {
           render={({ field }) => (
             <FormItem>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <SelectTrigger id="crypto" className="mt-2">
-                  <SelectValue placeholder="Select transfer" />
+                <SelectTrigger id="crypto" className="mt-2 pl-3">
+                  <SelectValue
+                    placeholder={
+                      <span className="text-sm sm:text-md">
+                        Select transfer
+                      </span>
+                    }
+                  />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="TRANSFER_IN">Transfer in</SelectItem>
-                  <SelectItem value="TRANSFER_OUT">Transfer out</SelectItem>
+                  <SelectItem
+                    value="TRANSFER_IN"
+                    className="px-3 text-sm sm:text-md"
+                  >
+                    Transfer in
+                  </SelectItem>
+                  <SelectItem
+                    value="TRANSFER_OUT"
+                    className="px-3 text-sm sm:text-md"
+                  >
+                    Transfer out
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </FormItem>
           )}
         />
 
-        <Label htmlFor="quantity" className="mt-6 text-sm">
+        <Label htmlFor="quantity" className="mt-4 text-sm lg:mt-6">
           Quantity
         </Label>
         <Input
@@ -110,7 +126,7 @@ export function TradeCryptoForm({ balance, cryptoId }: TradeCryptoProps) {
           {...register('amount')}
         />
 
-        <Button className="mt-8">Transfer Crypto</Button>
+        <Button className="mt-4 sm:mt-6 lg:mt-8">Transfer Crypto</Button>
       </form>
     </Form>
   )

@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import Image from 'next/image'
-import { ChevronRight } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { api } from '@/lib/axios'
 import { z } from 'zod'
@@ -69,7 +68,10 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
 
   return (
     <Form {...form}>
-      <form className="flex flex-col" onSubmit={handleSubmit(handleAddCrypto)}>
+      <form
+        className="mt-6 flex w-full flex-col"
+        onSubmit={handleSubmit(handleAddCrypto)}
+      >
         <FormField
           control={control}
           name="asset"
@@ -77,26 +79,34 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
             <FormItem>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Choose Crypto" />
+                  <SelectValue
+                    placeholder={
+                      <span className="ml-4 text-sm lg:text-md">Choose</span>
+                    }
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {coins.map((coin) => {
                     return (
-                      <SelectItem
-                        key={coin.id}
-                        value={coin.id}
-                        className="flex"
-                      >
-                        <div className="flex">
-                          <Image
-                            src={coin.imageUrl}
-                            alt=""
-                            width={16}
-                            height={16}
-                          />
-                          {coin.name}
-                          {coin.symbol}
-                          <ChevronRight />
+                      <SelectItem key={coin.id} value={coin.id}>
+                        <div className="flex w-full items-center justify-between px-3">
+                          <div className="flex items-center">
+                            <Image
+                              src={coin.imageUrl}
+                              alt=""
+                              className="mr-2"
+                              width={16}
+                              height={16}
+                              quality={80}
+                            />
+                            <span className="text-sm">
+                              {coin.name}
+                              <span className="text-sm text-secondary-500">
+                                {' '}
+                                {coin.symbol}
+                              </span>
+                            </span>
+                          </div>
                         </div>
                       </SelectItem>
                     )
@@ -110,11 +120,11 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
         <Input
           placeholder="0,00"
           type="number"
-          className="mt-6"
+          className="mt-4 lg:mt-6"
           {...register('amount')}
         />
 
-        <Button className="mt-6">Add Crypto</Button>
+        <Button className="mt-4 lg:mt-6">Add Crypto</Button>
       </form>
     </Form>
   )

@@ -40,7 +40,7 @@ export async function AddCryptoDialog({ children }: SignInDialogProps) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-1 text-xl font-bold">
+          <DialogTitle className="flex items-center gap-1 text-md font-bold sm:text-lg lg:text-xl">
             Add Crypto
           </DialogTitle>
         </DialogHeader>
