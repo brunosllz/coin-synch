@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import {
   TooltipProvider,
@@ -10,6 +12,8 @@ import ethereum from '@/assets/ethereum.svg'
 import bitcoin from '@/assets/bitcoin.svg'
 import businessChart from '@/assets/business-chart.svg'
 import wallet from '@/assets/wallet.svg'
+import { cn } from '@/lib/utils'
+import { useSidebarResponsive } from '@/hooks/use-responsive-sidebar'
 
 const NAV_LINKS = [
   {
@@ -35,8 +39,17 @@ const NAV_LINKS = [
 ]
 
 export function Sidebar() {
+  const { isOpen } = useSidebarResponsive()
+
   return (
-    <aside className="relative hidden h-full flex-col border-y border-secondary-300 bg-white pb-16 pl-6 pr-[30px] pt-12 xl:flex">
+    <aside
+      className={cn(
+        'relative mb-24 hidden h-full flex-col border-y border-secondary-300 bg-white pl-6 pr-[30px] pt-12 xl:flex',
+        {
+          block: isOpen,
+        },
+      )}
+    >
       <nav>
         <ul className="flex flex-col gap-8">
           {NAV_LINKS.map((link) => {

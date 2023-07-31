@@ -31,7 +31,7 @@ export function SignInForm() {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(handleSignIn)}>
-      <div className="gap flex flex-col gap-6 ">
+      <div className="gap flex flex-col gap-6">
         <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
           <Mail />
           <Input
@@ -55,7 +55,7 @@ export function SignInForm() {
         Forgot password?
       </a>
 
-      <Button className="mt-6">Sign in</Button>
+      <Button className="mt-4 lg:mt-6">Sign in</Button>
     </form>
   )
 }

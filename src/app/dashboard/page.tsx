@@ -9,6 +9,7 @@ import { Plus } from 'lucide-react'
 import wallet from '@/assets/wallet.svg'
 import { AddCryptoDialog } from './add-crypto-dialog'
 import { CardsInfo } from './cards-info'
+import { Footer } from './footer'
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -42,9 +43,10 @@ export default async function DashBoard() {
         </div>
       </div>
 
-      <footer className="mt-20 flex w-full items-center justify-center bg-white py-6 shadow-[0_10px_28px_-10px_hsla(206,22%,7%,.35),0_10px_15px_-15px_hsla(206,22%,7%,.2)] xl:hidden ">
+      <Footer className="mt-20 flex xl:hidden" />
+      {/* <footer className="mt-20 flex w-full items-center justify-center bg-white py-6 shadow-[0_10px_28px_-10px_hsla(206,22%,7%,.35),0_10px_15px_-15px_hsla(206,22%,7%,.2)] xl:hidden ">
         <span className="text-sm">Copyright © 2022 - All rights reserved</span>
-      </footer>
+      </footer> */}
     </main>
   )
 }

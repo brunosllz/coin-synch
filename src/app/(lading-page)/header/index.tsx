@@ -9,6 +9,13 @@ import Link from 'next/link'
 
 import logo from '@/assets/logo.svg'
 import { MenuIcon } from '@/assets/menu-icon'
+import { Button } from '@/components/ui/button'
+import { Logout } from '@/assets/logout'
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from '@/components/ui/popover'
 
 export async function Header() {
   const coinCapResponse = await coinCapApi.get('/assets', {
@@ -35,7 +42,28 @@ export async function Header() {
               </Link>
             </nav>
 
-            {/* <MenuIcon /> */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="sm:hidden" variant="ghost" size="icon">
+                  <MenuIcon />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="flex flex-col gap-4">
+                <Link
+                  href="/sign-in"
+                  className="inline-flex h-8 w-[100px] items-center justify-center rounded-full py-2 text-sm underline-offset-4 ring-offset-white transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  Sign In
+                </Link>
+
+                <Link
+                  href="/sign-up"
+                  className="'bg-primary-500 inline-flex h-8 w-[100px] items-center justify-center rounded-full bg-primary-500  py-2 text-sm text-white ring-offset-white transition-colors  hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  Sign Up
+                </Link>
+              </PopoverContent>
+            </Popover>
           </div>
 
           <div className="items-center gap-20 sm:flex">
