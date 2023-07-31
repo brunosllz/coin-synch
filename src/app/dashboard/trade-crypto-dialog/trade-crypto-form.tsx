@@ -39,12 +39,16 @@ export function TradeCryptoForm({ balance, cryptoId }: TradeCryptoProps) {
 
   const form = useForm<TradeCrypto>({
     resolver: zodResolver(tradeCryptoSchema),
+    defaultValues: {
+      amount: undefined,
+      transferType: undefined,
+    },
   })
-  const { control, register, handleSubmit } = form
+  const { control, register, handleSubmit, reset } = form
   const { data: session } = useSession()
   const queryClient = useQueryClient()
 
-  const { mutateAsync } = useMutation(
+  const { mutateAsync, isLoading } = useMutation(
     async (data: TradeCrypto) => {
       await api.post(`/api/wallet/user/${session?.userId}/transactions`, {
         amount: data.amount,
@@ -55,6 +59,7 @@ export function TradeCryptoForm({ balance, cryptoId }: TradeCryptoProps) {
     {
       onSuccess() {
         queryClient.invalidateQueries(['wallet'])
+        reset()
       },
       onError(error) {
         // TODO: add an observer - datadog/sentry
@@ -121,12 +126,19 @@ export function TradeCryptoForm({ balance, cryptoId }: TradeCryptoProps) {
         <Input
           id="quantity"
           placeholder="0,00"
+          step={0.01}
           type="number"
           className="mt-2"
           {...register('amount')}
         />
 
-        <Button className="mt-4 sm:mt-6 lg:mt-8">Transfer Crypto</Button>
+        <Button
+          isLoading={isLoading}
+          disabled={isLoading}
+          className="mt-4 sm:mt-6 lg:mt-8"
+        >
+          Transfer Crypto
+        </Button>
       </form>
     </Form>
   )

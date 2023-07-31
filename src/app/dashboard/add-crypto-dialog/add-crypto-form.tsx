@@ -1,6 +1,11 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { api } from '@/lib/axios'
+import { z } from 'zod'
+import { useSession } from 'next-auth/react'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Coin } from '@/app/(lading-page)/top-cryptos-section'
 
 import { Button } from '@/components/ui/button'
@@ -14,11 +19,6 @@ import {
 } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import Image from 'next/image'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { api } from '@/lib/axios'
-import { z } from 'zod'
-import { useSession } from 'next-auth/react'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 interface AddCryptoFormProps {
   coins: Coin[]
@@ -34,12 +34,16 @@ type AddCrypto = z.infer<typeof addCryptoSchema>
 export function AddCryptoForm({ coins }: AddCryptoFormProps) {
   const form = useForm<AddCrypto>({
     resolver: zodResolver(addCryptoSchema),
+    defaultValues: {
+      amount: undefined,
+      asset: undefined,
+    },
   })
-  const { handleSubmit, control, register } = form
+  const { handleSubmit, control, register, reset } = form
   const { data: session } = useSession()
   const queryClient = useQueryClient()
 
-  const { mutateAsync: addCrypto } = useMutation(
+  const { mutateAsync: addCrypto, isLoading } = useMutation(
     async (data: AddCrypto) => {
       await api.post(`/api/wallet/user/${session?.userId}/transactions`, {
         amount: data.amount,
@@ -50,6 +54,7 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
     {
       onSuccess() {
         queryClient.invalidateQueries(['wallet'])
+        reset()
       },
       onError(error) {
         // TODO: add an observer - datadog/sentry
@@ -120,11 +125,18 @@ export function AddCryptoForm({ coins }: AddCryptoFormProps) {
         <Input
           placeholder="0,00"
           type="number"
+          step={0.01}
           className="mt-4 lg:mt-6"
           {...register('amount')}
         />
 
-        <Button className="mt-4 lg:mt-6">Add Crypto</Button>
+        <Button
+          disabled={isLoading}
+          isLoading={isLoading}
+          className="mt-4 lg:mt-6"
+        >
+          Add Crypto
+        </Button>
       </form>
     </Form>
   )

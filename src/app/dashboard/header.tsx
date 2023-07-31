@@ -12,11 +12,16 @@ import {
 import { Logout } from '@/assets/logout'
 import { MenuIcon } from '@/assets/menu-icon'
 import { Button } from '@/components/ui/button'
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { useSidebarResponsive } from '@/hooks/use-responsive-sidebar'
 
 export function Header() {
   const { handleOpenClose } = useSidebarResponsive()
+  const { data: session } = useSession()
+
+  const sessionUserName = session?.user?.name
+
+  const userName = sessionUserName?.split(' ')[0]
 
   return (
     <header className="relative flex w-full shrink-0 items-center justify-between px-6 py-4 shadow-md sm:px-10">
@@ -40,7 +45,9 @@ export function Header() {
               width={32}
               height={32}
             />
-            <span className="ml-2 hidden text-sm sm:block">Bruno</span>
+            <span className="ml-2 hidden text-sm capitalize sm:block">
+              {userName}
+            </span>
             <ChevronDown size={16} className="ml-1" />
           </div>
         </PopoverTrigger>

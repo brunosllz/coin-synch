@@ -22,7 +22,7 @@ import { Trade } from '@/assets/trade'
 import { WalletEmpty } from './wallet-empty'
 import { useBreakpoint } from '@/hooks/use-breakpoints'
 
-interface Wallet {
+export interface Wallet {
   id: string
   balance: number
   assetId: string
@@ -101,7 +101,9 @@ export function WalletTable() {
                   <TableCell style={{ width: isXl ? '26.73%' : '15%' }}>
                     <div className="flex flex-col gap-1 text-sm">
                       {formatPriceToDollar(asset.balance.toString())}
-                      <span className="text-sm text-primary-500">434 SOL</span>
+                      <span className="text-sm text-primary-500">
+                        434 {asset.symbol}
+                      </span>
                     </div>
                   </TableCell>
 

@@ -38,6 +38,7 @@ const NAV_LINKS = [
   },
 ]
 
+// TODO: make responsive version
 export function Sidebar() {
   const { isOpen } = useSidebarResponsive()
 
