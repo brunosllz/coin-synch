@@ -17,7 +17,7 @@ import { signOut } from 'next-auth/react'
 export function Header() {
   return (
     <header className="relative flex w-full shrink-0 items-center justify-between px-6 py-4 shadow-md sm:px-10">
-      <div className=" lg:hidden">
+      <div className="xl:hidden">
         <MenuIcon />
       </div>
 
@@ -37,7 +37,12 @@ export function Header() {
           </div>
         </PopoverTrigger>
         <PopoverContent>
-          <Button className="flex items-center gap-4" onClick={() => signOut()}>
+          <Button
+            variant="link"
+            size="sm"
+            className="flex items-center gap-4 p-0"
+            onClick={() => signOut()}
+          >
             <Logout />
             Logout
           </Button>

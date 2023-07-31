@@ -35,7 +35,7 @@ export async function Header() {
               </Link>
             </nav>
 
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </div>
 
           <div className="items-center gap-20 sm:flex">

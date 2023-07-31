@@ -35,7 +35,7 @@ interface Wallet {
 export function WalletTable() {
   const { data: session } = useSession()
   const userId = session?.userId
-  const { isLg } = useBreakpoint('lg')
+  const { isXl } = useBreakpoint('xl')
 
   const { data: wallet, isLoading: isLoadingWallet } = useQuery<Wallet[]>({
     queryKey: ['wallet'],
@@ -76,14 +76,14 @@ export function WalletTable() {
                 <TableRow key={asset.id}>
                   <TableCell
                     className="text-sm text-secondary-500"
-                    style={{ width: isLg ? '11.42%' : '2%' }}
+                    style={{ width: isXl ? '11.42%' : '2%' }}
                   >
                     {asset.rank.padStart(2, '0')}
                   </TableCell>
 
                   <TableCell
                     className="flex items-center"
-                    style={{ width: isLg ? '29.47%' : '60%' }}
+                    style={{ width: isXl ? '29.47%' : '60%' }}
                   >
                     <Image
                       src={asset.imageUrl}
@@ -98,7 +98,7 @@ export function WalletTable() {
                     </span>
                   </TableCell>
 
-                  <TableCell style={{ width: isLg ? '26.73%' : '15%' }}>
+                  <TableCell style={{ width: isXl ? '26.73%' : '15%' }}>
                     <div className="flex flex-col gap-1 text-sm">
                       {formatPriceToDollar(asset.balance.toString())}
                       <span className="text-sm text-primary-500">434 SOL</span>
@@ -109,12 +109,12 @@ export function WalletTable() {
                     className={cn('text-tertiary-700', {
                       'text-quaternary-700': isNegative,
                     })}
-                    style={{ width: isLg ? '22.43%' : '15%' }}
+                    style={{ width: isXl ? '22.43%' : '15%' }}
                   >
                     {asset.changePercent}
                   </TableCell>
 
-                  <TableCell style={{ width: isLg ? '6.62%' : '2%' }}>
+                  <TableCell style={{ width: isXl ? '6.62%' : '2%' }}>
                     <TradeCryptoDialog asset={asset}>
                       <Button size="icon" variant="ghost" className="group">
                         <Trade className="group-hover:stroke-secondary-700" />
