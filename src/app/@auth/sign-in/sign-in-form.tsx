@@ -8,8 +8,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
 import { Mail } from '@/assets/mail'
-import { Lock } from '@/assets/lock'
-import { Eye } from 'lucide-react'
+import { InputPassword } from '@/components/input-password'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const signInSchema = z.object({
   email: z.string().email(),
@@ -19,7 +19,9 @@ const signInSchema = z.object({
 type SignIn = z.infer<typeof signInSchema>
 
 export function SignInForm() {
-  const { handleSubmit, register } = useForm<SignIn>({})
+  const { handleSubmit, register } = useForm<SignIn>({
+    resolver: zodResolver(signInSchema),
+  })
 
   function handleSignIn({ email, password }: SignIn) {
     signIn('credentials', {
@@ -41,15 +43,7 @@ export function SignInForm() {
           />
         </div>
 
-        <div className="flex items-center rounded-md border border-secondary-300 px-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-          <Lock />
-          <Input
-            placeholder="Password"
-            className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
-            {...register('password')}
-          />
-          <Eye size={18} className="text-secondary-300" />
-        </div>
+        <InputPassword {...register('password')} />
       </div>
       <a href="#" className="mt-[9px] self-end text-xs text-secondary-500 ">
         Forgot password?

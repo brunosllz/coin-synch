@@ -17,10 +17,9 @@ import {
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { InputPassword } from '@/components/input-password'
 
-import { Eye } from 'lucide-react'
 import { User } from '@/assets/user'
-import { Lock } from '@/assets/lock'
 import { Mail } from '@/assets/mail'
 
 const signUpSchema = z
@@ -86,97 +85,79 @@ export function SignUpForm() {
   return (
     <Form {...form}>
       <form className="flex flex-col" onSubmit={handleSubmit(handleSignUp)}>
-        <FormField
-          control={control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-                  <User />
-                  <Input
-                    placeholder="Name"
-                    disabled={isSubmitting}
-                    className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
-                    {...field}
-                  />
-                </div>
-              </FormControl>
+        <div className="flex w-full flex-col gap-6">
+          <FormField
+            control={control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
+                    <User />
+                    <Input
+                      placeholder="Name"
+                      disabled={isSubmitting}
+                      className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <div className="mt-6 flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-                  <Mail />
-                  <Input
-                    placeholder="Email"
-                    disabled={isSubmitting}
-                    className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
-                    {...field}
-                  />
-                </div>
-              </FormControl>
+          <FormField
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <div className="flex items-center rounded-md border border-secondary-300 pl-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
+                    <Mail />
+                    <Input
+                      placeholder="Email"
+                      disabled={isSubmitting}
+                      className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <div className="mt-6 flex items-center rounded-md border border-secondary-300 px-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-                  <Lock />
-                  <Input
-                    placeholder="Password"
-                    disabled={isSubmitting}
-                    type="password"
-                    className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
-                    {...field}
-                  />
-                  <Eye size={18} className="text-secondary-300" />
-                </div>
-              </FormControl>
+          <FormField
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <InputPassword {...field} />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={control}
-          name="confirmPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <div className="mt-6 flex items-center rounded-md border border-secondary-300 px-4 focus-within:ring-2 focus-within:ring-primary-500 focus:ring-offset-2">
-                  <Lock />
-                  <Input
-                    placeholder="Confirm Password"
-                    type="password"
-                    disabled={isSubmitting}
-                    className="border-0 pl-2 focus-visible:ring-0 focus-visible:ring-offset-0"
-                    {...field}
-                  />
-                  <Eye size={18} className="text-secondary-300" />
-                </div>
-              </FormControl>
+          <FormField
+            control={control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <InputPassword {...field} />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <FormField
           control={control}
